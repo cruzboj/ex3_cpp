@@ -15,7 +15,7 @@ public:
 
 
 //AIplaeyr.cpp
-void Aiplayer::placeAllShips(){
+void AiPlayer::placeAllShips(){
     for (int i = 0; i < 5; ++i) {
         int row = rand() % 10;
         int col = rand() % 10;
@@ -27,6 +27,7 @@ void Aiplayer::placeAllShips(){
         }
     }
 }
+
 void AiPlayer::makeMove(Player* opponent){
         int row = rand() % 10;
         int col = rand() % 10;

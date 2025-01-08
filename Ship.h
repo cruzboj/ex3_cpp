@@ -20,27 +20,27 @@ class Ship{
 
 class Carrier : public Ship {
     public:
-        Carrier();
+        Carrier() : Ship("Carrier", 5) {}
 };
 
 class Battleship : public Ship {
     public:
-        Battleship();
+        Battleship () : Ship("Battleship ", 5) {}
 };
 
 class Cruiser : public Ship {
     public:
-        Cruiser();
+        Cruiser() : Ship("Cruiser", 3) {}
 };
 
 class Submarine : public Ship {
     public:
-        Submarine();
+        Submarine() : Ship("Submarine", 3) {}
 };
 
 class Destroyer : public Ship {
     public:
-        Destroyer();
+        Destroyer() : Ship("Destroyer", 2) {}
 };
 
 //Ship.cpp
