@@ -36,7 +36,6 @@ Player::~Player() {
     for (int i = 0; i < 5; ++i) {
         delete ships[i];  // שחרור זיכרון של כל ספינה
     }
-    delete[] playerName;
 }
 
 bool Player::allShipsSunk()const{

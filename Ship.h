@@ -1,7 +1,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-#include "main.cpp"
+#include <cstring>
 
 class Ship{
         char* name; 
