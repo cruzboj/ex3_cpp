@@ -6,10 +6,10 @@
 
 class Player {
     const char* playerName;
-    
-public:
     Ship * ships[5];
     Grid grid;
+public:
+    
     Player(const char* name) : playerName(name){};
 
     virtual ~Player();
