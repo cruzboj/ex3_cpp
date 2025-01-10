@@ -4,6 +4,7 @@
 #include <cstdlib>   // For std::rand(), std::srand()
 #include <ctime>     // For std::time()
 #include "Game.h"
+#include "Player.h"
 #include "HumanPlayer.h"
 #include "AiPlayer.h"
 
