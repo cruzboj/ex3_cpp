@@ -12,6 +12,8 @@ int rand0or1(){
 
 void AiPlayer::placeAllShips()
 {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    
     for (int i = 0; i < MaxShips; i++)
     {
         //cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
