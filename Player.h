@@ -1,55 +1,19 @@
-#ifndef PLAYER_H
-#define PLAYER_H
-#include "Ship.h"
+#include "Ships.h"
 #include "Grid.h"
+#pragma once
+const int MaxShips = 5;
 
+class Player{
+    private:
+        char *playerName;
+        Grid grid;
+    public:
+        Ship* ships[5];
+        Player(const char* name);
+        virtual ~Player();
+        // virtual void placeAllShips();
+        void displayGrid();
+        void PlaceShip(int row, int col,bool horizontal, Ship *ship);
 
-class Player {
-    const char* playerName;
-    
-public:
-    Ship * ships[5];
-    Grid grid;
-    Player(const char* name) : playerName(name){};
-
-    virtual ~Player();
-
-    virtual void placeAllShips() = 0; //pure virtual
-    virtual void makeMove(Player* opponent) = 0; //pure virtual
-
-    bool allShipsSunk() const;
-
-    void displayMyGrid() const;
+        virtual void placeAllShips();
 };
-
-
-//player.cpp
-Player::Player(const char* name){
-        ships[0] = new Carrier();
-        ships[1] = new Battleship();
-        ships[2] = new Cruiser();
-        ships[3] = new Submarine();
-        ships[4] = new Destroyer();
-    }
-
-Player::~Player() {
-    for (int i = 0; i < 5; ++i) {
-        delete ships[i];  // שחרור זיכרון של כל ספינה
-    }
-    delete[] playerName;
-}
-
-bool Player::allShipsSunk()const{
-    for (int i = 0; i < 5; ++i) {
-            if (!ships[i]->isSunk()) {
-                return false;
-            }
-        }
-        return true;
-}
-
-void Player::displayMyGrid()const{
-        grid.printGrid();
-}
-
-#endif
