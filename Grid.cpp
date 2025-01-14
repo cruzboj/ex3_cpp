@@ -80,4 +80,5 @@ char Grid::getCell(int row, int col) const
         return cells[row][col];
     else
         std::cout << "Error, cell out of line" << std::endl;
+        return ' ';
 }
