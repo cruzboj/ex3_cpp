@@ -4,16 +4,24 @@
 const int MaxShips = 5;
 
 class Player{
-    private:
+    protected:
         char *playerName;
         Grid grid;
     public:
         Ship* ships[5];
         Player(const char* name);
         virtual ~Player();
-        // virtual void placeAllShips();
-        void displayGrid();
         void PlaceShip(int row, int col,bool horizontal, Ship *ship);
-
+        void displayGrid();
+        
+        //virtual void placeAllShips() =0 ;
         virtual void placeAllShips();
+        //added
+        //virtual void makeMove(Player* opponent)=0;
+
+        bool allShipsSunk() const;
+        
+        //getters
+        Grid &getGrid() { return grid; }
+        Ship* getShip(int i) const {return ships[i];}
 };

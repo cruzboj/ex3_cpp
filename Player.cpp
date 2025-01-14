@@ -16,12 +16,12 @@ Player::Player(const char *name)
 
 void Player::displayGrid()
 {
-    grid.PrintGrid();
+    getGrid().PrintGrid();
 }
 
 Player::~Player()
 {
-    cout << playerName << " Was dest" << endl;
+    cout << playerName << " player Destractor" << endl;
     delete[] playerName;
 }
 

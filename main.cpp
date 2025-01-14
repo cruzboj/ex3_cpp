@@ -7,6 +7,7 @@
 #include "Ships.h"
 #include "Grid.h"
 #include "Player.h"
+#include "HumanPlayer.h"
 
 int main()
 {
@@ -21,7 +22,7 @@ int main()
     // std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     // // Create two players: one human, one AI
-    // Player* p1 = new HumanPlayer("Human");
+    //Player* p1 = new HumanPlayer("Human");
     // Player* p2 = new AiPlayer("Computer");
 
     // // Create the Game object with the two players
