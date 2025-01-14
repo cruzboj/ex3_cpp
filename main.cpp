@@ -11,13 +11,10 @@
 int main()
 {
     Player test("yoav");
-    // test.PlaceShip(3,3,true,test.ships[3]);
     test.placeAllShips();
     test.displayGrid();
 
-    // Submarine test;
-    // test.printShip();
- 
+    
 
     // // Seed the random number generator for AI placement and moves
     // // You need it to stay HERE when you use random in the AiPlayer class
