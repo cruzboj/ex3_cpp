@@ -7,8 +7,8 @@ class Player{
     protected:
         char *playerName;
         Grid grid;
-    public:
         Ship* ships[5];
+    public:
         Player(const char* name);
         virtual ~Player();
         void PlaceShip(int row, int col,bool horizontal, Ship *ship);

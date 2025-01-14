@@ -33,7 +33,7 @@ void Player::PlaceShip(int row, int col, bool horizontal, Ship *ship)
 
         if (getGrid().inBounds(row, col, ship->getSize(), horizontal))
         {
-            getGrid().placeShip(row, col, ship->getSize(), horizontal, 'S');
+            //getGrid().placeShip(row, col, ship->getSize(), horizontal, 'S');
             inBounds = 1;
         }
         else
@@ -47,7 +47,7 @@ void Player::placeAllShips()
 {
     for (int i = 0; i < MaxShips; i++)
     {
-        cout << "Ship:" << i + 1<< " Size: " << ships[i]->getSize() << endl;
+        cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
         int row = 0, col = 0;
         bool horizontal = 0;
         cout << "Row:";
@@ -57,12 +57,12 @@ void Player::placeAllShips()
         cout << "Horizontal(0 For Vertical/1 For horizontal):";
         cin >> horizontal;
         cout << row << col << horizontal << endl;
-        if (getGrid().inBounds(row, col, ships[i]->getSize(), horizontal))
+        if (getGrid().inBounds(row, col, getShip(i)->getSize(), horizontal))
         {
             int IsOccupied = 0;
             if (horizontal == 1)
             {
-                for (int j = col; j < col + ships[i]->getSize(); j++)
+                for (int j = col; j < col + getShip(i)->getSize(); j++)
                 {
                     if (getGrid().isTileOccupied(row - 1, j - 1) == true)
                     {
@@ -72,7 +72,7 @@ void Player::placeAllShips()
                 }
                 if (IsOccupied == 0)
                 {
-                    getGrid().placeShip(row, col, ships[i]->getSize(), horizontal, getShipChar(i));
+                    getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
                     getGrid().PrintGrid();
                 }
                 else
@@ -82,7 +82,7 @@ void Player::placeAllShips()
             }
             else if (horizontal == 0)
             {
-                for (int j = row; j < row + ships[i]->getSize(); j++)
+                for (int j = row; j < row + getShip(i)->getSize(); j++)
                 {
                     if (getGrid().isTileOccupied(j - 1, col - 1) == true)
                     {
@@ -92,7 +92,7 @@ void Player::placeAllShips()
                 }
                 if (IsOccupied == 0)
                 {
-                    getGrid().placeShip(row, col, ships[i]->getSize(), horizontal, getShipChar(i));
+                    getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
                     getGrid().PrintGrid();
                 }
                 else
