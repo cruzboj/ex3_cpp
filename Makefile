@@ -1,9 +1,9 @@
-OBJS = Grid.h Ships.h Player.h #Humanplayer.h
+OBJS = Grid.h Ships.h Player.h HumanPlayer.h
 
 run: prog
 	./prog
 
-prog: main.o Grid.o Ships.o Player.o #Humanplayer.o
+prog: main.o Grid.o Ships.o Player.o HumanPlayer.o
 	g++ *.o -o prog
 
 main.o: main.cpp $(OBJS)
@@ -18,7 +18,8 @@ Ships.o: Ships.cpp
 Player.o: Player.cpp
 	g++ -c Player.cpp
 
-#Humanplayer.o: Humanplayer.cpp g++ -c Humanplayer.cpp
+HumanPlayer.o: HumanPlayer.cpp 
+	g++ -c HumanPlayer.cpp
 
 clean:
 	rm -f *.o prog
