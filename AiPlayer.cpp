@@ -13,7 +13,7 @@ int rand0or1(){
 void AiPlayer::placeAllShips()
 {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    
+
     for (int i = 0; i < MaxShips; i++)
     {
         //cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
@@ -35,7 +35,7 @@ void AiPlayer::placeAllShips()
                 {
                     if (getGrid().isTileOccupied(row - 1, j - 1) == true)
                     {
-                        cout << "Occupied" << endl;
+                        //cout << "Occupied" << endl;
                         IsOccupied++;
                     }
                 }
@@ -55,7 +55,7 @@ void AiPlayer::placeAllShips()
                 {
                     if (getGrid().isTileOccupied(j - 1, col - 1) == true)
                     {
-                        cout << "Occupied" << endl;
+                        //cout << "Occupied" << endl;
                         IsOccupied++;
                     }
                 }
@@ -70,7 +70,7 @@ void AiPlayer::placeAllShips()
         }
         else
         {
-            cout << "Out of Bounds" << endl;
+            //cout << "Out of Bounds" << endl;
             i--;
             continue;
         }
