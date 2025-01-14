@@ -1,4 +1,5 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <cstdlib> // For std::rand(), std::srand()
 #include <ctime>   // For std::time()
 // #include "Game.h"
@@ -7,6 +8,14 @@
 #include "Ships.h"
 #include "Grid.h"
 #include "Player.h"
+=======
+#include <cstdlib>   // For std::rand(), std::srand()
+#include <ctime>     // For std::time()
+#include "Game.h"
+#include "Player.h"
+#include "HumanPlayer.h"
+#include "AiPlayer.h"
+>>>>>>> ede2f4fc1362571e37be2c27ccbcc4d6a51498e6
 
 int main()
 {
