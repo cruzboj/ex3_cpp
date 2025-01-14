@@ -2,7 +2,7 @@
 #include <cstdlib> // For std::rand(), std::srand()
 #include <ctime>   // For std::time()
 // #include "Game.h"
-// #include "AiPlayer.h"
+#include "AiPlayer.h"
 #include "Ships.h"
 #include "Grid.h"
 #include "Player.h"
@@ -19,12 +19,18 @@ int main()
     // // Seed the random number generator for AI placement and moves
     // // You need it to stay HERE when you use random in the AiPlayer class
     // std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    //std::srand(std::time(0));
 
     // // Create two players: one human, one AI
     Player* p1 = new HumanPlayer("Human");
     p1->placeAllShips();
     p1->displayGrid();
-    // Player* p2 = new AiPlayer("Computer");
+    cout << "\n"<<endl;
+
+    Player* p2 = new AiPlayer("Computer");
+    p2->placeAllShips();
+    p2->displayGrid();
+    cout << "\n"<<endl;
 
     // // Create the Game object with the two players
     // Game game(p1, p2);

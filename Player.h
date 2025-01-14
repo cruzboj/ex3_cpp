@@ -24,5 +24,6 @@ class Player{
         //getters
         Grid &getGrid() { return grid; }
         Ship* getShip(int i) const {return ships[i];}
-        //char * getPlayerName() {return playerName;}
+        
+        virtual char getShipChar(int i);
 };

@@ -108,19 +108,19 @@ void Player::PlaceShip(int row, int col, bool horizontal, Ship *ship)
 //     }
 // }
 
-// char getShipChar(int i) {
-//     switch (i){
-//         case 0:
-//             return 'C';
-//         case 1:
-//             return 'B';
-//         case 2:
-//             return 'R';
-//         case 3:
-//             return 'S';
-//         case 4:
-//             return 'D';
-//         default:
-//             return '~';
-//     }
-// }
+char Player::getShipChar(int i) {
+    switch (i){
+        case 0:
+            return 'C';
+        case 1:
+            return 'B';
+        case 2:
+            return 'R';
+        case 3:
+            return 'S';
+        case 4:
+            return 'D';
+        default:
+            return '~';
+    }
+}

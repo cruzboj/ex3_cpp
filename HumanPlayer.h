@@ -8,6 +8,6 @@ class HumanPlayer : public Player{
 
     public:
         HumanPlayer(const char* name);
-        //~HumanPlayer();
+        ~HumanPlayer();
         void placeAllShips();
 };

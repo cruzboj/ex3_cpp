@@ -1,20 +1,28 @@
-#include "HumanPlayer.h"
+#include "AiPlayer.h"
 
-HumanPlayer::HumanPlayer(const char* name) : Player(name){}
+AiPlayer::AiPlayer(const char* name) : Player(name){}
 
-void HumanPlayer::placeAllShips()
+int AiPlayer::getRandomCoordinate() {
+      // Ensure srand(...) is called in main
+      return std::rand() % 10 + 1;
+}
+int rand0or1(){
+    return std::rand() % 1;
+}
+
+void AiPlayer::placeAllShips()
 {
     for (int i = 0; i < MaxShips; i++)
     {
-        cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
+        //cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
         int row = 0, col = 0;
         bool horizontal = 0;
-        cout << "Row:";
-        cin >> row;
-        cout << "Column: ";
-        cin >> col;
-        cout << "Horizontal(0 For Vertical/1 For horizontal):";
-        cin >> horizontal;
+        //cout << "Row:";
+        row = getRandomCoordinate();
+        //cout << "Column: ";
+        col = getRandomCoordinate();
+        //cout << "Horizontal(0 For Vertical/1 For horizontal):";
+        horizontal = rand0or1();
         //cout << row << col << horizontal << endl;
         if (getGrid().inBounds(row, col, getShip(i)->getSize(), horizontal))
         {
@@ -67,7 +75,7 @@ void HumanPlayer::placeAllShips()
     }
 }
 
-HumanPlayer::~HumanPlayer(){
-    cout << playerName << " player Destractor" << endl;
+AiPlayer::~AiPlayer(){
+    cout << playerName << "AI Destractor" << endl;
     delete[] playerName;
 }
