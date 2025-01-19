@@ -72,7 +72,6 @@ void HumanPlayer::placeAllShips()
 
 HumanPlayer::~HumanPlayer()
 {
-    cout << playerName << " player Destractor" << endl;
     delete[] playerName;
     for(int i = 0; i<MaxShips; i++){
         delete ships[i];

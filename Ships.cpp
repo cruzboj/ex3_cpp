@@ -25,7 +25,6 @@ void Ship::takeHit(){
 }
 
 Ship::~Ship(){
-    std::cout << "Destructed " << name << std::endl;
     delete[] name;
 }
 

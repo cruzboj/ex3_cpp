@@ -70,7 +70,6 @@ void AiPlayer::placeAllShips()
 
 AiPlayer::~AiPlayer()
 {
-    cout << playerName << "AI Destractor" << endl;
     delete[] playerName;
     for (int i = 0; i < MaxShips; i++)
         delete ships[i];
@@ -91,7 +90,6 @@ void AiPlayer::makeMove(Player *opponent)
             int ship_index = getShipint(cell);
             if (ship_index == -1)
             {
-                cout << "Invalid input" << endl;
                 continue;
             }
             else
