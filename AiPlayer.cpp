@@ -85,7 +85,6 @@ void AiPlayer::makeMove(Player *opponent)
     {
         int row = getRandomCoordinate();
         int col = getRandomCoordinate();
-        cout << row << " " << col << endl;
         if (opponent->getGrid().isTileOccupied(row - 1, col - 1))
         {
             char cell = opponent->getGrid().getCell(row - 1, col - 1);
