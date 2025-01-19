@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.js": "javascript",
         "\"*.css\"": "tailwind.css",
         "array": "cpp",
         "*.tcc": "cpp",
@@ -9,6 +10,7 @@
         "tuple": "cpp",
         "utility": "cpp",
         "iostream": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "ostream": "cpp"
     }
 }

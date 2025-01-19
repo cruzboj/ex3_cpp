@@ -4,7 +4,6 @@ AiPlayer::AiPlayer(const char *name) : Player(name) {}
 
 int AiPlayer::getRandomCoordinate()
 {
-    // Ensure srand(...) is called in main
     return std::rand() % 10 + 1;
 }
 int rand0or1()
@@ -18,16 +17,11 @@ void AiPlayer::placeAllShips()
 
     for (int i = 0; i < MaxShips; i++)
     {
-        // cout << "Ship:" << i + 1<< " Size: " << getShip(i)->getSize() << endl;
         int row = 0, col = 0;
         bool horizontal = 0;
-        // cout << "Row:";
         row = getRandomCoordinate();
-        // cout << "Column: ";
         col = getRandomCoordinate();
-        // cout << "Horizontal(0 For Vertical/1 For horizontal):";
         horizontal = rand0or1();
-        // cout << row << col << horizontal << endl;
         if (getGrid().inBounds(row, col, getShip(i)->getSize(), horizontal))
         {
             int IsOccupied = 0;
@@ -37,14 +31,12 @@ void AiPlayer::placeAllShips()
                 {
                     if (getGrid().isTileOccupied(row - 1, j - 1) == true)
                     {
-                        // cout << "Occupied" << endl;
                         IsOccupied++;
                     }
                 }
                 if (IsOccupied == 0)
                 {
                     getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
-                    // getGrid().PrintGrid();
                 }
                 else
                 {
@@ -57,14 +49,12 @@ void AiPlayer::placeAllShips()
                 {
                     if (getGrid().isTileOccupied(j - 1, col - 1) == true)
                     {
-                        // cout << "Occupied" << endl;
                         IsOccupied++;
                     }
                 }
                 if (IsOccupied == 0)
                 {
                     getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
-                    // getGrid().PrintGrid();
                 }
                 else
                     i--;
@@ -72,7 +62,6 @@ void AiPlayer::placeAllShips()
         }
         else
         {
-            // cout << "Out of Bounds" << endl;
             i--;
             continue;
         }
@@ -83,6 +72,8 @@ AiPlayer::~AiPlayer()
 {
     cout << playerName << "AI Destractor" << endl;
     delete[] playerName;
+    for(int i = 0 ; i < MaxShips ; i++)
+        delete ships[i];
 }
 
 void AiPlayer::makeMove(Player *opponent)
@@ -91,8 +82,11 @@ void AiPlayer::makeMove(Player *opponent)
     int col = getRandomCoordinate() - 1;
     if (opponent->getGrid().isTileOccupied(row, col))
     {
+        char cell = opponent->getGrid().getCell(row, col);
+        int ship_index = getShipint(cell);
+        opponent->getShip(ship_index)->takeHit();
+        // std::cout << opponent->getShip(ship_index)->getHits() << std::endl;
         opponent->getGrid().markHit(row, col);
-        cout << "Hit" << endl;
     }
     else
     {

@@ -13,18 +13,20 @@ Grid::Grid()
 
 void Grid::PrintGrid()
 {
-    std::cout << "  ";
+    std::cout << "   ";
     for (int i = 0; i < MaxGrid; i++)
     {
-        std::cout << i+1;
+        std::cout << " " << i + 1 << " ";
     }
     std::cout << std::endl;
     for (int i = 0; i < MaxGrid; i++)
     {
-        std::cout << i+1 << " ";
+        std::cout << i + 1 << " ";
+        if (i < 9)
+            std::cout << " ";
         for (int j = 0; j < MaxGrid; j++)
         {
-            std::cout << cells[i][j];
+            std::cout << '|'<< cells[i][j] << '|';
         }
         std::cout << std::endl;
     }
@@ -60,24 +62,31 @@ bool Grid::inBounds(int row, int col, int shipSize, bool horizontal) const
     }
 }
 
-void Grid::placeShip(int row, int col, int shipSize, bool horizontal, char symbol){
-    if (horizontal == true){
-        for(int i = col; i < col+shipSize; i++){
-            cells[row-1][i-1] = symbol;
+void Grid::placeShip(int row, int col, int shipSize, bool horizontal, char symbol)
+{
+    if (horizontal == true)
+    {
+        for (int i = col; i < col + shipSize; i++)
+        {
+            cells[row - 1][i - 1] = symbol;
         }
     }
-    else {
-        for (int i = row; i<row+shipSize; i++){
-            cells[i-1][col-1] = symbol;
+    else
+    {
+        for (int i = row; i < row + shipSize; i++)
+        {
+            cells[i - 1][col - 1] = symbol;
         }
     }
 }
 
-void Grid::markHit(int row, int col){
+void Grid::markHit(int row, int col)
+{
     cells[row][col] = 'X';
 }
 
-void Grid::markMiss(int row,int col){
+void Grid::markMiss(int row, int col)
+{
     cells[row][col] = 'M';
 }
 
@@ -87,5 +96,5 @@ char Grid::getCell(int row, int col) const
         return cells[row][col];
     else
         std::cout << "Error, cell out of line" << std::endl;
-        return ' ';
+    return ' ';
 }

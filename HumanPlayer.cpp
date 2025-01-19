@@ -1,22 +1,6 @@
 #include "HumanPlayer.h"
 
-int getShipint(char ship_char)
-{
-    switch (ship_char)
-    {
-    case 'C':
-        return 0;
-    case 'B':
-        return 1;
-    case 'R':
-        return 2;
-    case 'S':
-        return 3;
-    case 'D':
-        return 4;
-    }
-    return -1;
-}
+
 
 HumanPlayer::HumanPlayer(const char *name) : Player(name) {}
 
@@ -35,7 +19,6 @@ void HumanPlayer::placeAllShips()
         cin >> col;
         cout << "Horizontal(0 For Vertical/1 For horizontal):";
         cin >> horizontal;
-        // cout << row << col << horizontal << endl;
 
         if (getGrid().inBounds(row, col, getShip(i)->getSize(), horizontal))
         {
@@ -53,7 +36,6 @@ void HumanPlayer::placeAllShips()
                 if (IsOccupied == 0)
                 {
                     getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
-                    // getGrid().PrintGrid();
                 }
                 else
                 {
@@ -73,7 +55,6 @@ void HumanPlayer::placeAllShips()
                 if (IsOccupied == 0)
                 {
                     getGrid().placeShip(row, col, getShip(i)->getSize(), horizontal, getShipChar(i));
-                    // getGrid().PrintGrid();
                 }
                 else
                     i--;
@@ -86,12 +67,16 @@ void HumanPlayer::placeAllShips()
             continue;
         }
     }
+    cout << endl <<  "All Ships are placed \n" << endl;
 }
 
 HumanPlayer::~HumanPlayer()
 {
     cout << playerName << " player Destractor" << endl;
     delete[] playerName;
+    for(int i = 0; i<MaxShips; i++){
+        delete ships[i];
+    }
 }
 
 void HumanPlayer::makeMove(Player *opponent)
@@ -125,7 +110,6 @@ void HumanPlayer::makeMove(Player *opponent)
                 opponent->getGrid().markHit(row - 1, col - 1);
                 AvailableMove = 1;
             }
-            // cout << "Hit" << endl;
         }
         else
         {
