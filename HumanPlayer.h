@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HUMANPLAYER_H
+#define HUMANPLAYER_H
 using namespace std;
 #include "Player.h"
 #include "Ships.h"
@@ -12,3 +13,4 @@ class HumanPlayer : public Player{
         void placeAllShips();
         void makeMove(Player* opponent);
 };
+#endif

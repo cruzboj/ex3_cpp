@@ -1,8 +1,9 @@
+#ifndef SHIPS_H
+#define SHIPS_H
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
 #include <ctime>
-#pragma once
 
 class Ship
 {
@@ -61,3 +62,4 @@ public:
     {
     }
 };
+#endif

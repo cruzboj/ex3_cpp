@@ -21,8 +21,8 @@ void Player::displayGrid()
 
 Player::~Player()
 {
-    cout << playerName << " player Destractor" << endl;
-    delete[] playerName;
+    // cout << playerName << " player Destractor" << endl;
+    // delete[] playerName;
 }
 
 void Player::PlaceShip(int row, int col, bool horizontal, Ship *ship)

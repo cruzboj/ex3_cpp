@@ -1,6 +1,7 @@
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "Ships.h"
 #include "Grid.h"
-#pragma once
 const int MaxShips = 5;
 
 class Player{
@@ -10,11 +11,11 @@ class Player{
         Ship* ships[5];
     public:
         Player(const char* name);
-        virtual ~Player();
+        virtual ~Player() = 0;
         void PlaceShip(int row, int col,bool horizontal, Ship *ship);
         void displayGrid();
         
-        virtual void placeAllShips() =0 ;
+        virtual void placeAllShips() = 0;
         //virtual void placeAllShips();
         //added
         virtual void makeMove(Player* opponent)=0;
@@ -27,3 +28,5 @@ class Player{
         
         virtual char getShipChar(int i);
 };
+
+#endif

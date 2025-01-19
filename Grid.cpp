@@ -13,8 +13,15 @@ Grid::Grid()
 
 void Grid::PrintGrid()
 {
+    std::cout << "  ";
     for (int i = 0; i < MaxGrid; i++)
     {
+        std::cout << i+1;
+    }
+    std::cout << std::endl;
+    for (int i = 0; i < MaxGrid; i++)
+    {
+        std::cout << i+1 << " ";
         for (int j = 0; j < MaxGrid; j++)
         {
             std::cout << cells[i][j];

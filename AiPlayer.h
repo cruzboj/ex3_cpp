@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AIPLAYER_H
+#define AIPLAYER_H
 using namespace std;
 #include "Player.h"
 #include "Ships.h"
@@ -16,3 +17,4 @@ class AiPlayer : public Player{
         void makeMove(Player* opponent);
         int getRandomCoordinate();
 };
+#endif

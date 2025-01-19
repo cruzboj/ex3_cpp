@@ -1,5 +1,6 @@
+#ifndef GRID_H
+#define GRID_H
 #include <iostream>
-#pragma once
 const int MaxGrid = 10;
 
 class Grid{
@@ -15,3 +16,4 @@ class Grid{
     void markMiss(int row, int col);
     char getCell(int row, int col) const;
 };
+#endif
