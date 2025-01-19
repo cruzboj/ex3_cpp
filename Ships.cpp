@@ -18,7 +18,7 @@ bool Ship::isSunk() const{
 
 void Ship::takeHit(){
     hitsTaken++;
-    // std::cout << name << " got hit!" << std::endl;
+    std::cout << name << " got hit!" << std::endl;
     if(isSunk()){
         std::cout << name << " got sunk" << std::endl;
     }

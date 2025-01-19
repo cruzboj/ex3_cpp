@@ -72,25 +72,41 @@ AiPlayer::~AiPlayer()
 {
     cout << playerName << "AI Destractor" << endl;
     delete[] playerName;
-    for(int i = 0 ; i < MaxShips ; i++)
+    for (int i = 0; i < MaxShips; i++)
         delete ships[i];
 }
 
 void AiPlayer::makeMove(Player *opponent)
 {
-    int row = getRandomCoordinate() - 1;
-    int col = getRandomCoordinate() - 1;
-    if (opponent->getGrid().isTileOccupied(row, col))
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    int availableMove = 0;
+    while (availableMove == 0)
     {
-        char cell = opponent->getGrid().getCell(row, col);
-        int ship_index = getShipint(cell);
-        opponent->getShip(ship_index)->takeHit();
-        // std::cout << opponent->getShip(ship_index)->getHits() << std::endl;
-        opponent->getGrid().markHit(row, col);
-    }
-    else
-    {
-        opponent->getGrid().markMiss(row, col);
+        int row = getRandomCoordinate();
+        int col = getRandomCoordinate();
+        cout << row << " " << col << endl;
+        if (opponent->getGrid().isTileOccupied(row - 1, col - 1))
+        {
+            char cell = opponent->getGrid().getCell(row - 1, col - 1);
+            int ship_index = getShipint(cell);
+            if (ship_index == -1)
+            {
+                cout << "Invalid input" << endl;
+                continue;
+            }
+            else
+            {
+                availableMove = 1;
+                opponent->getShip(ship_index)->takeHit();
+                opponent->getGrid().markHit(row - 1, col - 1);
+            }
+        }
+        else
+        {
+            availableMove = 1;
+            opponent->getGrid().markMiss(row - 1, col - 1);
+        }
     }
     std::cout << "Player's grid:" << std::endl;
     opponent->displayGrid();

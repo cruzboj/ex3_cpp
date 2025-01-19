@@ -35,13 +35,13 @@ void Game::start()
         player1->makeMove(player2);
         if (player2->allShipsSunk())
         {
-            std::cout << "Player 1 wins!" << std::endl;
+            std::cout << player1->getName() <<" wins!" << std::endl;
             break;
         }
         player2->makeMove(player1);
         if (player1->allShipsSunk())
         {
-            std::cout << "Player 2 wins!" << std::endl;
+            std::cout <<player2->getName() <<" wins!" << std::endl;
             break;
         }
     }

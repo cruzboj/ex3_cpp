@@ -106,7 +106,6 @@ void HumanPlayer::makeMove(Player *opponent)
             else
             {
                 opponent->getShip(ship_index)->takeHit();
-                std::cout << opponent->getShip(ship_index)->getHits() << std::endl;
                 opponent->getGrid().markHit(row - 1, col - 1);
                 AvailableMove = 1;
             }
