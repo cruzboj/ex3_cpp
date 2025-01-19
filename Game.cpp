@@ -32,12 +32,12 @@ void Game::start()
     std::cout << std::endl << "Please enter a move" << std::endl;
     while (!isGameOver())
     {
-        // player1->makeMove(player2);
-        // if (player2->allShipsSunk())
-        // {
-            // std::cout << player1->getName() <<" wins!" << std::endl;
-            // break;
-        // }
+        player1->makeMove(player2);
+        if (player2->allShipsSunk())
+        {
+            std::cout << player1->getName() <<" wins!" << std::endl;
+            break;
+        }
         player2->makeMove(player1);
         if (player1->allShipsSunk())
         {
