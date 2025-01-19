@@ -17,9 +17,9 @@ class Player{
         virtual void placeAllShips() =0 ;
         //virtual void placeAllShips();
         //added
-        //virtual void makeMove(Player* opponent)=0;
+        virtual void makeMove(Player* opponent)=0;
 
-        //bool allShipsSunk() const;
+        bool allShipsSunk() const;
         
         //getters
         Grid &getGrid() { return grid; }

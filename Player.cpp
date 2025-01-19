@@ -43,6 +43,17 @@ void Player::PlaceShip(int row, int col, bool horizontal, Ship *ship)
     }
 }
 
+bool Player::allShipsSunk() const
+{
+    for (int i = 0; i < MaxShips; i++)
+    {
+        if (getShip(i)->isSunk() == false)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 // void Player::placeAllShips()
 // {
 //     for (int i = 0; i < MaxShips; i++)

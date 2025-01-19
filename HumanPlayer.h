@@ -10,4 +10,5 @@ class HumanPlayer : public Player{
         HumanPlayer(const char* name);
         ~HumanPlayer();
         void placeAllShips();
+        void makeMove(Player* opponent);
 };

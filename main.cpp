@@ -32,6 +32,8 @@ int main()
     p2->displayGrid();
     cout << "\n"<<endl;
 
+    while(!p1->allShipsSunk() ||!p2->allShipsSunk())
+        p1->makeMove(p2);
     // // Create the Game object with the two players
     // Game game(p1, p2);
 

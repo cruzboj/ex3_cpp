@@ -13,6 +13,6 @@ class AiPlayer : public Player{
         AiPlayer(const char* name);
         ~AiPlayer();
         void placeAllShips();
-        //void makeMove(Player* opponent);
+        void makeMove(Player* opponent);
         int getRandomCoordinate();
 };

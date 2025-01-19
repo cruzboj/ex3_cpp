@@ -81,3 +81,21 @@ AiPlayer::~AiPlayer(){
     cout << playerName << "AI Destractor" << endl;
     delete[] playerName;
 }
+
+void AiPlayer::makeMove(Player* opponent)
+{
+    int row = 0, col = 0;
+    cout << "Enter row: ";
+    cin >> row;
+    cout << "Enter column: ";
+    cin >> col;
+    if(opponent->getGrid().isTileOccupied(row, col)){
+        opponent->getGrid().markHit(row, col);
+        cout << "Hit" << endl;
+    }
+    else{
+        opponent->getGrid().markMiss(row, col);
+        cout << "Miss" << endl;
+    }
+    opponent->displayGrid();
+}
